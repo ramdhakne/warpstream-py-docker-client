@@ -1,5 +1,5 @@
 # warpstream-py-docker-client
-Py client for Warpstream Kafka Cluster. Its dockerized to run locally.
+Py client for Warpstream Kafka Cluster. SR is dockerized to run locally. Client registers the schema with schema registry first and write record to the kafka cluster.
 
 ## Pre-requisties
 * Create Warpsteam(WS) Kafka cluster 
