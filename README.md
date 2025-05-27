@@ -8,7 +8,7 @@ Py client for Warpstream Kafka Cluster. SR is dockerized to run locally. Client 
 * If using WS serverless then no need of creating agent for the broker
 * Create WS Schema Registry (SR)
 
-## docker dir 
+## Docker dir structure
 ```
 /your-docker-dir/
 ├── .env                    # Environment variables for sensitive configs (e.g. API keys, schema registry URL)
