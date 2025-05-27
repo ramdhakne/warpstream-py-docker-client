@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  consumer:
+    build: .  
+    env_file: .env
+    network_mode: bridge
