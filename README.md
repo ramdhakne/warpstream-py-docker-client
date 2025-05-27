@@ -1,2 +1,44 @@
 # warpstream-py-docker-client
 Py client for Warpstream Kafka Cluster. Its dockerized to run locally.
+
+## Pre-requisties
+* Create Warpsteam(WS) Kafka cluster 
+* If using WS serverless then no need of creating agent for the broker
+* Create WS Schema Registry (SR)
+
+## docker dir 
+```
+/your-docker-dir/
+├── .env                    # Environment variables for sensitive configs (e.g. API keys, schema registry URL)
+├── Dockerfile              # Defines the container image for the consumer
+├── docker-compose.yaml     # Compose file to run the consumer container
+├── py_<client>.py          # Python consumer script (Avro + Schema Registry logic)
+├── requirements.txt        # Python dependencies (confluent_kafka, etc.)
+```
+
+## Running the client
+```docker-compose up --build```
+
+### eg
+```pwd```
+
+```# producer```
+
+```# producer % docker-compose up --build```
+
+### Output should match like this
+```
+[+] Running 2/2
+ ✔ producer                       Built                                                                                                                 0.0s 
+ ✔ Container producer-producer-1  Recreated                                                                                                             0.1s 
+Attaching to producer-1
+producer-1  | BOOTSTRAP_SERVERS: serverless.warpstream.com:9092
+producer-1  | KAFKA_API_KEY ccun_<redacted>
+producer-1  | KAFKA_API_SECRET ccp_<redacted>
+producer-1  | SCHEMA_REGISTRY_URL http://172.17.0.2:9094
+producer-1  | SCHEMA_REGISTRY_API_KEY ccun_<redacted>
+producer-1  | SCHEMA_REGISTRY_API_SECRET ccp_<redacted>
+producer-1  | Producing to topic: ws_topic_1
+producer-1  | ✅ Message delivered to ws_topic_1 [0]
+producer-1 exited with code 0
+```
